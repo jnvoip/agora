@@ -277,10 +277,13 @@ public class VideoChatViewActivity extends AppCompatActivity {
         // Please go to this page for detailed explanation
         // https://docs.agora.io/en/Video/API%20Reference/java/classio_1_1agora_1_1rtc_1_1_rtc_engine.html#af5f4de754e2c1f493096641c5c5c1d8f
         mRtcEngine.setVideoEncoderConfiguration(new VideoEncoderConfiguration(
-                VideoEncoderConfiguration.VD_640x360,
+                VideoEncoderConfiguration.VD_960x720,
                 VideoEncoderConfiguration.FRAME_RATE.FRAME_RATE_FPS_15,
                 VideoEncoderConfiguration.STANDARD_BITRATE,
                 VideoEncoderConfiguration.ORIENTATION_MODE.ORIENTATION_MODE_FIXED_PORTRAIT));
+       // mRtcEngine.setParameters("{\"che.hardware_encoding\": 1}");     //0 is software encoding. 1 is hardware encoding.
+       // mRtcEngine.setParameters("{\"che.hardware_decoding\": 1}");     //0 is software decoding. 1 is hardware decoding.
+
     }
 
     private void setupLocalVideo() {
@@ -309,7 +312,7 @@ public class VideoChatViewActivity extends AppCompatActivity {
         if (TextUtils.isEmpty(token) || TextUtils.equals(token, "#YOUR ACCESS TOKEN#")) {
             token = null; // default, no token
         }
-        mRtcEngine.joinChannel(token, "demoChannel1", "Extra Optional Data", 0);
+        mRtcEngine.joinChannel(token, "testerchannel", "Extra Optional Data", 0);
     }
 
     @Override
